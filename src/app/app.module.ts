@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MessageViewerComponent } from './message-viewer';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MessageViewerComponent,
   ],
   imports: [
     BrowserModule,
