@@ -1,0 +1,29 @@
+<h1>
+  Starred: {{starredCount}}
+</h1>
+
+<div *ngFor="let message of messages">
+  <article class="message row">
+    <figure class="col-md-2 text-center">
+      <img src="{{message.avatar}}">
+      <figcaption>
+        {{message.handle}}
+      </figcaption>
+    </figure>
+    <div class="col-md-7 top-space">
+      <div class="date">
+        Twitter | {{message.timestamp | date:'mediumDate'}}
+      </div>
+      <div class="content">
+        {{message.content}}
+      </div>
+    </div>
+    <div class="col-md-3 top-space">
+      <button *ngIf="!message.isStarred" (click)="toggleButton(message)" type="button" class="btn btn-outline-secondary">
+        Star Message!</button>
+      <button *ngIf="message.isStarred" (click)="toggleButton(message)" type="button" class="btn btn-warning">
+        Starred!</button>
+    </div>
+  </article>
+</div>
+

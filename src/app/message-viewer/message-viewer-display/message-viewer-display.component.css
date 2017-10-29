@@ -1,0 +1,26 @@
+h1 {
+  margin-left: 1em;
+}
+
+img {
+  margin: 1em;
+}
+
+button {
+  float: right;
+}
+
+.top-space {
+  margin-top: 1em;
+}
+
+.message {
+  border:1px solid #D3D3D3;
+  margin: 1em;
+}
+
+.date {
+  color: #808080;
+  font-size: 0.9em;
+}
+

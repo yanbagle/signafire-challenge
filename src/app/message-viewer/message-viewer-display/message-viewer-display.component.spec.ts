@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MessageViewerChildComponent } from './message-viewer-child.component';
+import { MessageViewerChildComponent } from './message-viewer-display.component';
 
 describe('MessageViewerChildComponent', () => {
   let component: MessageViewerChildComponent;
