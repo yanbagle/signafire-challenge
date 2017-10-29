@@ -10,6 +10,8 @@ export class MessageViewerChildComponent implements OnInit, OnChanges {
 
   @Input() messages: Message[];
   private starredCount = 0;
+  private filter = 'all';
+  private filteredMsgs: Message[];
 
   constructor() { }
 
@@ -29,9 +31,33 @@ export class MessageViewerChildComponent implements OnInit, OnChanges {
     }
   }
 
+  filterMsg() {
+    switch (this.filter) {
+      case 'all':
+        this.filteredMsgs = this.messages;
+        break;
+      case 'starred':
+        this.filteredMsgs = this.messages.filter((msg) => {
+          return msg.isStarred;
+        });
+        break;
+      case 'notStarred':
+        this.filteredMsgs = this.messages.filter((msg) => {
+          return !msg.isStarred;
+        });
+        break;
+      default:
+        console.log('Invalid filter');
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['messages']) {
+      this.filteredMsgs = this.messages;
       this.getStarredCount();
+    }
+    if (changes['filter']) {
+
     }
   }
 

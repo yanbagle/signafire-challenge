@@ -1,13 +1,19 @@
-h1 {
-  margin-left: 1em;
-}
-
 img {
   margin: 1em;
 }
 
 button {
   float: right;
+}
+
+.starred-filter {
+  float: right;
+  margin-right: 1em;
+}
+
+.stats {
+  margin-left: 0.5em;
+  font-size: 2em;
 }
 
 .top-space {

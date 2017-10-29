@@ -1,8 +1,22 @@
-<h1>
-  Starred: {{starredCount}}
-</h1>
+<div>
+  <span class="stats">
+    Starred: {{starredCount}}
+  </span>
+  <span class="starred-filter">
+    <label class="radio-inline">
+      <input type="radio" value="all" [(ngModel)]="filter" (ngModelChange)="filterMsg()">
+      Show All</label>
+    <label class="radio-inline">
+      <input type="radio" value="starred" [(ngModel)]="filter" (ngModelChange)="filterMsg()">
+      Starred Messages</label>
+    <label class="radio-inline">
+      <input type="radio" value="notStarred" [(ngModel)]="filter" (ngModelChange)="filterMsg()">
+      Not Starred Messages</label>
+  </span>
+</div>
 
-<div *ngFor="let message of messages">
+{{filter}}
+<div *ngFor="let message of filteredMsgs">
   <article class="message row">
     <figure class="col-md-2 text-center">
       <img src="{{message.avatar}}">
