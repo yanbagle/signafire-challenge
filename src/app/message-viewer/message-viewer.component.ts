@@ -10,7 +10,7 @@ import { Message } from './message-model';
 export class MessageViewerComponent implements OnInit {
 
   // gets passed down as input for display
-  private messages: Message[];
+  messages: Message[];
 
   constructor(private messageService: MessageService) { }
 

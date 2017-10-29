@@ -6,13 +6,13 @@ import {Message} from '../message-model';
   templateUrl: './message-viewer-display.component.html',
   styleUrls: ['./message-viewer-display.component.css']
 })
-export class MessageViewerChildComponent implements OnInit, OnChanges {
+export class MessageViewerDisplayComponent implements OnInit, OnChanges {
 
   @Input() messages: Message[];
-  private starredCount = 0;
-  private filter = 'all';
-  private filteredMsgs: Message[];
-  private filterString = '';
+  starredCount = 0;
+  filter = 'all';
+  filteredMsgs: Message[];
+  filterString = '';
 
   constructor() { }
 

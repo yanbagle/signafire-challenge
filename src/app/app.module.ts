@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MessageViewerComponent, MessageViewerChildComponent, MessageService } from './message-viewer';
+import { MessageViewerComponent, MessageViewerDisplayComponent, MessageService } from './message-viewer';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessageViewerComponent,
-    MessageViewerChildComponent,
+    MessageViewerDisplayComponent,
   ],
   imports: [
     BrowserModule,
