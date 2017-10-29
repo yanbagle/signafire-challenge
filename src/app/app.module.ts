@@ -3,18 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MessageViewerComponent } from './message-viewer';
+import { MessageViewerComponent, MessageViewerChildComponent, MessageService } from './message-viewer';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessageViewerComponent,
+    MessageViewerChildComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

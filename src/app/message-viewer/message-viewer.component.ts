@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from './message-service/message.service';
+import { Message } from './message-model';
 
 @Component({
   selector: 'app-message-viewer',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageViewerComponent implements OnInit {
 
-  constructor() { }
+  private messages: Message[];
+
+  constructor(private messageService: MessageService) { }
 
   ngOnInit() {
+    this.messageService.getMessages().subscribe((res) => {
+      this.messages = res;     
+    });
   }
 
 }
