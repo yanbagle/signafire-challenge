@@ -9,13 +9,14 @@ import { Message } from './message-model';
 })
 export class MessageViewerComponent implements OnInit {
 
+  // gets passed down as input for display
   private messages: Message[];
 
   constructor(private messageService: MessageService) { }
 
   ngOnInit() {
     this.messageService.getMessages().subscribe((res) => {
-      this.messages = res;     
+      this.messages = res;
     });
   }
 

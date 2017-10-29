@@ -1,8 +1,13 @@
+
 <div>
-  <span class="stats">
+  <div class="stats">
     Starred: {{starredCount}}
-  </span>
-  <span class="starred-filter">
+  </div>
+  <div class="filter top-space">
+    <label for="strFilter">string filter:</label>
+    <input type="text" class="form-control" id="strFilter" [(ngModel)]="filterString" (ngModelChange)="filterByStr()">
+  </div>
+  <div class="filter top-space">
     <label class="radio-inline">
       <input type="radio" value="all" [(ngModel)]="filter" (ngModelChange)="filterMsg()">
       Show All</label>
@@ -12,10 +17,9 @@
     <label class="radio-inline">
       <input type="radio" value="notStarred" [(ngModel)]="filter" (ngModelChange)="filterMsg()">
       Not Starred Messages</label>
-  </span>
+  </div>
 </div>
 
-{{filter}}
 <div *ngFor="let message of filteredMsgs">
   <article class="message row">
     <figure class="col-md-2 text-center">
@@ -33,9 +37,9 @@
       </div>
     </div>
     <div class="col-md-3 top-space">
-      <button *ngIf="!message.isStarred" (click)="toggleButton(message)" type="button" class="btn btn-outline-secondary">
+      <button *ngIf="!message.isStarred" (click)="toggleStarButton(message)" type="button" class="btn btn-outline-secondary">
         Star Message!</button>
-      <button *ngIf="message.isStarred" (click)="toggleButton(message)" type="button" class="btn btn-warning">
+      <button *ngIf="message.isStarred" (click)="toggleStarButton(message)" type="button" class="btn btn-warning">
         Starred!</button>
     </div>
   </article>

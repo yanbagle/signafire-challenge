@@ -12,14 +12,16 @@ export class MessageViewerChildComponent implements OnInit, OnChanges {
   private starredCount = 0;
   private filter = 'all';
   private filteredMsgs: Message[];
+  private filterString = '';
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  toggleButton(message: Message) {
+  toggleStarButton(message: Message) {
     message.isStarred = !message.isStarred;
+    // re-count starred messages
     this.getStarredCount();
   }
 
@@ -31,6 +33,14 @@ export class MessageViewerChildComponent implements OnInit, OnChanges {
     }
   }
 
+  // filter messages by string, this will ignore current toggle filter
+  filterByStr() {
+    this.filteredMsgs = this.messages.filter((msg) => {
+      return msg.content.toLowerCase().includes(this.filterString);
+    });
+  }
+
+  // filter messages based on toggle
   filterMsg() {
     switch (this.filter) {
       case 'all':
@@ -52,12 +62,11 @@ export class MessageViewerChildComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    // messages from service coming in from parent comp
     if (changes['messages']) {
       this.filteredMsgs = this.messages;
+      // get initial starred count
       this.getStarredCount();
-    }
-    if (changes['filter']) {
-
     }
   }
 
